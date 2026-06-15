@@ -1,0 +1,46 @@
+export type OrderStatus = 'pending' | 'delivered' | 'cancelled';
+
+export interface Category {
+  id: string;
+  name: string;
+}
+
+export interface OrderItem {
+  productId: string;
+  name: string;
+  quantity: number;
+  price: number;
+}
+
+export interface Product {
+  id: string;
+  name: string;
+  sellPrice: number;
+  purchasePrice: number;
+  description?: string;
+  image?: string;
+  categoryId?: string;
+}
+
+export interface Customer {
+  id: string;
+  name: string;
+  phone: string;
+  address: string;
+}
+
+export interface Order {
+  id: string;
+  orderNumber?: string;
+  customerName: string;
+  phone: string;
+  address: string;
+  amount: number;
+  subtotal?: number;
+  discount?: number;
+  paymentStatus?: 'unpaid' | 'partial' | 'paid';
+  items?: OrderItem[];
+  status: OrderStatus;
+  createdAt: number;
+  notes?: string;
+}
